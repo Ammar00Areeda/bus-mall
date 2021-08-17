@@ -146,4 +146,21 @@ function chartRender() {
   });
 }
 
+let orders = [];
+
+function saveToLocalStorage() {
+  let data = JSON.stringify(orders);
+  localStorage.setItem('coffee', data);
+}
+function readFromLocalStorage() {
+  let stringObj = localStorage.getItem('coffee');
+  let normalObj = JSON.parse(stringObj);
+
+  if (normalObj) {
+    orders = normalObj;
+    renderOrders();
+  }
+}
+readFromLocalStorage();
+
 

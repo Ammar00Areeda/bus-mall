@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
@@ -14,16 +15,28 @@
       
       <span id="attempts"></span>
       <ul id="results"></ul>
+      <div id="previousImgs">
+        <p>the previous Imgs</p>
+        <img id="botLeftImg" src="" alt="" />
+        <img id="botMidImg" src="" alt="" />
+        <img id="botRightImg" src="" alt="" />
+      </div>
       <div id="image-container">
         <img id="leftImg" src="" alt="" />
         <img id="midImg" src="" alt="" />
         <img id="rightImg" src="" alt="" />
-        
       </div>
+        
+        
+        
+        
+      
       <p id="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam aliquam neque deleniti beatae? Dolorem sit, ipsam officiis molestias repellat quia quasi perferendis error laborum placeat nisi iure quam blanditiis nobis?</p>
      
     </main>
     <footer></footer>
+    <canvas id="myChart"></canvas>
+    
     <script src="js/app.js"></script>
     
 </body>

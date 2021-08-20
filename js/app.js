@@ -18,6 +18,10 @@ let productArray = ['bag.jpg', 'banana.jpg', 'bathroom.jpg', 'boots.jpg', 'break
 let products = [];
 let maxAttempts = 10;
 let attempt = 1;
+let productNameArray =[];
+let votes = [];
+let views = [];
+
 
 //const
 function product(productName) {
@@ -26,9 +30,11 @@ function product(productName) {
   this.votes = 0;
   this.views = 0;
   products.push(this);
+  productNameArray.push(this.productName);
 
 
 }
+console.log(productNameArray);
 //for loop to push all product to the porducts array by the name of img
 for (let i = 0; i < productArray.length; i++) {
   new product(productArray[i]);
@@ -103,6 +109,8 @@ function clickHandler(event) {
       let liEl = document.createElement('li');
       result.appendChild(liEl);
       liEl.textContent = `${products[i].productName} : ${products[i].votes} votes   `;
+      votes.push(products[i].votes);
+      views.push(products[i].views);
     }
     leftImg.removeEventListener('click', clickHandler);
     rightImg.removeEventListener('click', clickHandler);
@@ -113,7 +121,7 @@ function chartRender() {
   let myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: gNames,
+      labels: productNameArray,
       datasets: [{
         label: '# of Votes',
         data: votes,
@@ -145,22 +153,11 @@ function chartRender() {
     }
   });
 }
+chartRender();
 
-let orders = [];
 
-function saveToLocalStorage() {
-  let data = JSON.stringify(orders);
-  localStorage.setItem('coffee', data);
-}
-function readFromLocalStorage() {
-  let stringObj = localStorage.getItem('coffee');
-  let normalObj = JSON.parse(stringObj);
 
-  if (normalObj) {
-    orders = normalObj;
-    renderOrders();
-  }
-}
-readFromLocalStorage();
+
+
 
 
